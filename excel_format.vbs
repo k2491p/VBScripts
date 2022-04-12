@@ -2,12 +2,12 @@ Call Main
 
 '----------------------------------------------------
 '
-'   ï¿½yExcelï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½z
-'   ï¿½{ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Æ“ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
-'   ï¿½ï¿½ï¿½×‚Ä‚ï¿½Excel(*.xlsx, *.xlsm, *.xls)ï¿½É‘Î‚ï¿½ï¿½ÄA
-'       ï¿½EA1ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
-'       ï¿½Eï¿½gï¿½å—¦ï¿½ï¿½100%
-'   ï¿½ï¿½Sï¿½Vï¿½[ï¿½gï¿½Ésï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+'   yExcelƒtƒH[ƒ}ƒbƒgz
+'   –{ƒtƒ@ƒCƒ‹‚ª‚ ‚éƒfƒBƒŒƒNƒgƒŠ‚Æ“¯‚¶ƒfƒBƒŒƒNƒgƒŠ‚É‚ ‚é
+'   ‚·‚×‚Ä‚ÌExcel(*.xlsx, *.xlsm, *.xls)‚É‘Î‚µ‚ÄA
+'       EA1‚ğƒZƒ‹‚ğ‘I‘ğ
+'       EŠg‘å—¦‚ğ100%
+'   ‚ğ‘SƒV[ƒg‚És‚¢‚Ü‚·B
 '
 '----------------------------------------------------
 Sub Main()
@@ -30,8 +30,8 @@ Sub Main()
     'ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚ğƒZƒbƒg
     Dim currentDirectory : Set currentDirectory = fso.GetFolder(".\")
 
-    'ƒJƒEƒ“ƒg”
-    Dim fileCount : fileCount = currentDirectory.Files.Count
+    'ƒJƒEƒ“ƒg” (ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚Évbs‚Æbat‚ª‚ ‚é‘z’è‚Åƒ}ƒCƒiƒX2)
+    Dim fileCount : fileCount = currentDirectory.Files.Count - 2
     Dim count : count = 1
     
     'ƒfƒBƒŒƒNƒgƒŠ“à‚ğˆ—
@@ -42,9 +42,9 @@ Sub Main()
             workbook.Saveas(file)
             workbook.Close
             Set workbook = Nothing
+            WScript.Echo fileCount & "Œ’†" & count & "Œ–Úˆ—I—¹"
+            count = count + 1 
         End If
-        WScript.Echo fileCount & "Œ’†" & count & "Œ–Úˆ—I—¹"
-        count = count + 1 
     Next
     objXlsx.Quit()
 End Sub
